@@ -6,11 +6,11 @@
 }
 
 button {
-    border: none;
+    border: initial;
     background-color: initial;
     color: inherit;
     font: inherit;
-    outline: none; /* Make sure there is a visual indicator for focused state */
+    outline: none; /* Make sure there is a visual indicator for focus state */
 }
 
 /* KEYFRAMES */
@@ -20,7 +20,7 @@ button {
         transform: translateY(-50px);
     }
 
-    100% { 
+    100% {
         opacity: 1;
         transform: translateY(0px);
     }
@@ -32,7 +32,19 @@ button {
         transform: translateX(-50px);
     }
 
-    100% { 
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes fade-in-from-right {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    100% {
         opacity: 1;
         transform: translateX(0px);
     }
@@ -48,10 +60,23 @@ button {
     }
 }
 
+@keyframes make-smaller {
+    0% {
+        height: 100%;
+        width: 100%;
+    }
+
+    100% {
+        height: 75%;
+        width: 78%;
+    }
+}
+
 /* BASE STYLES */
 .app {
     font-family: 'Lato', sans-serif;
-    font-size: 1rem;
+    font-size: 15px;
+    color: #fff;
     height: 100vh;
     width: 100vw;
 }
@@ -59,11 +84,9 @@ button {
 .app__container {
     height: calc(100vh - 55px);
     display: flex;
-    flex-direction: row;
 }
 
 /* STYLES */
-
 .header {
     background-image: linear-gradient(to right, #18A0BE, #622DB9);
     height: 55px;
@@ -95,7 +118,6 @@ button {
     background-color: rgba(255, 255, 255, 0.07);
 }
 
-
 .dd-toggle:nth-of-type(4) {
     margin-left: auto;
 }
@@ -121,7 +143,7 @@ button {
 
 }
 
-/* ---------------------------- */
+/* ---------------- */
 
 .sidebar {
     background-color: #10171A;
@@ -147,18 +169,19 @@ button {
 
 .menu__button:hover {
     background-color: #2B363B;
-    color: white;
+    color: #fff;
     cursor: pointer;
 }
 
 .menu__button:focus {
     background-color: #2B363B;
-    color: white;
+    color: #fff;
     cursor: pointer;
 }
 
 .menu__button--active {
     background-color: #2B363B;
+    color: #fff;
     position: relative;
 }
 
@@ -166,20 +189,20 @@ button {
     content: '';
     width: 3px;
     height: 100%;
-    background-color: #375bb6;
+    background-color: #375BB6;
     position: absolute;
     left: 0;
     top: 0;
 }
 
 .menu__icon {
-    font-size: 1.2rem;
+    font-size: 18px;
     margin-bottom: 3px;
 }
 
 .menu__text {
     font-weight: 500;
-    font-size: 0.7rem;
+    font-size: 12px;
 }
 
 .footer {
@@ -190,12 +213,11 @@ button {
 
 .copyright {
     color: rgba(255, 255, 255, 0.15);
-    font-size: 0.7rem;
+    font-size: 12px;
     white-space: nowrap;
 }
 
-
-/* ---------------------------- */
+/* ---------------- */
 
 .panel {
     background-color: #2B363C;
@@ -214,11 +236,10 @@ button {
 .first-heading {
     font-size: 18px;
     font-weight: 400;
-    color: #EDF1F3;
 }
 
 .panel__collapse-icon {
-    color: #687276;
+    color: #6B7276;
     cursor: pointer;
 }
 
@@ -233,7 +254,7 @@ button {
     width: 140px;
     height: 140px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 7px;
     cursor: pointer;
     transition: all 0.2s;
     animation: fade-in 1s;
@@ -264,14 +285,14 @@ button {
 .panel__btn {
     width: 140px;
     height: 140px;
-    border-radius: 8px;
+    border-radius: 7px;
     background-color: #333e44;
     cursor: pointer;
     transition: all 0.2s;
     animation: fade-in 1s 0.5s backwards;
 }
 
-.panel__btn:hover
+.panel__btn:hover,
 .panel__btn:focus {
     background-color: #404c52;
 }
@@ -281,8 +302,7 @@ button {
     color: #21292d;
 }
 
-
-/* ---------------------------- */
+/* ---------------- */
 
 .main {
     background-color: #EDF1F3;
@@ -313,7 +333,6 @@ button {
 .breadcrumbs__icon {
     color: #A6ADB1;
     margin: 0 13px;
-
 }
 
 .breadcrumbs__name {
@@ -323,7 +342,6 @@ button {
 
 .button {
     background-color: #375BB6;
-    color: #fff;
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -339,11 +357,12 @@ button {
 }
 
 .artboard {
-    height: calc(100vh - 50px -55px);
+    height: calc(100vh - 50px - 55px);
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: -25px;
+    column-gap: 20px;
 }
 
 .canvas {
@@ -372,6 +391,7 @@ button {
     transform: translate(-50%, -50%);
     border: 1px solid #fff;
     cursor: grab;
+    animation: make-smaller 1s 0.2s backwards;
 }
 
 .canvas__circle {
@@ -380,6 +400,7 @@ button {
     border-radius: 50%;
     background-color: #fff;
     position: absolute;
+    animation: fade-in 1s 1s backwards;
 }
 
 .canvas__circle:nth-of-type(1) {
@@ -408,12 +429,37 @@ button {
 
 .tools {
     height: 57.5vh;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    animation: fade-in-from-right 0.5s;
 }
 
 .tool {
+    background-color: #E1E6E9;
+    height: 44px;
+    width: 44px;
+    border-radius: 8px;
+    color: #404446;
+    cursor: pointer;
+    transition: all 0.4s;
+}
 
+.tool--active {
+    background-color: #2B363B;
+    color: #fff;
+}
+
+.tool:last-child {
+    margin-top: auto;
+}
+
+.tool:hover,
+.tool:focus {
+    background-color: #2B363B;
+    color: #fff;
 }
 
 .tool__icon {
-    color: #fff;
+
 }
