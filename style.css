@@ -463,3 +463,24 @@ button {
 .tool__icon {
 
 }
+
+/* MEDIA QUERIES */
+@media (max-width: 1200px) {
+    .panel {
+        display: none;
+    }
+
+    .canvas {
+        width: 67vw;
+    }
+}
+
+@media (max-width: 1000px) {
+    .sidebar {
+        display: none;
+    }
+
+    .canvas {
+        width: 100%;
+    }
+}
