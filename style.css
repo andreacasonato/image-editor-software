@@ -402,19 +402,19 @@ button {
 .canvas__circle:nth-of-type(2) {
     top: 11.5%;
     right: 10.4%;
-    cursor: sw-resize;
+    cursor: ne-resize;
 }
 
 .canvas__circle:nth-of-type(3) {
     bottom: 11.5%;
     left: 10.4%;
-    cursor: nw-resize;
+    cursor: sw-resize;
 }
 
 .canvas__circle:nth-of-type(4) {
     bottom: 11.5%;
     right: 10.4%;
-    cursor: sw-resize;
+    cursor: se-resize;
 }
 
 .tools {
